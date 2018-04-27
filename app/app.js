@@ -1,7 +1,8 @@
-const express = require('express') ;
-const app = express() ;
-const http = require('http') ;
-const data = require("./data.json") ;
+var express = require('express') ;
+var app = express() ;
+var http = require('http') ;
+var data = require("./data.json") ;
+var createError = require('http-errors') ;
 
 var meals = data.meals ;
 var menu = data.menu ;
@@ -10,26 +11,34 @@ var caterer = data.caterer;
 
 app.use(express.json()) ;
 app.use(express.urlencoded({extended:false})) ;
+
+// a function to generate Id from resource
+let generateNextId = (array) => {
+    var length = array.length ;
+    var lastId = length != 0 ? array[length - 1].id : 0 ;
+    return ++lastId ;
+}
+
 app.get("/", (req, res) => {
    // res.send('Hello from BookAMeal')
     res.json(meals) ;
 });
 
-app.get("/meals", function (req, res) {
+app.get("/api/v1/meals", (req, res) => {
     res.status(200)
     res.json(meals) ;
 });
 
-app.post("/meals", (req, res) => {
-    var length = meals.length ;
-    var lastId = length != 0 ? meals[length - 1].id : 0 ;
-    var nextId = ++lastId ;
+app.post("/api/v1/meals", (req, res) => {
+    
+    var nextId = generateNextId(meals) ;
     meals.push({"id":nextId,"content": req.body.content});
     res.status(200)
     res.json(meals) ;
+    
 });
 
-app.put("/meals/:mealId",  (req, res) => {
+app.put("/api/v1/meals/:mealId",  (req, res) => {
 
     meals.map((meal, idx)=> {
         if(meal.id == req.params.mealId)
@@ -41,7 +50,7 @@ app.put("/meals/:mealId",  (req, res) => {
 })
 
 
-app.delete("/meals/:mealId",  (req, res) => {
+app.delete("/api/v1/meals/:mealId",  (req, res) => {
 
     meals.map((meal, idx)=> {
         if(meal.id == req.params.mealId)
@@ -54,21 +63,20 @@ app.delete("/meals/:mealId",  (req, res) => {
 });
 
 
-app.get("/orders", function (req, res) {
+app.get("/api/v1/orders", function (req, res) {
     res.status(200)
     res.json(orders) ;
 });
 
-app.post("/orders", (req, res) => {
-    var length = orders.length ;
-    var lastId = length != 0 ? orders[length - 1].id : 0 ;
-    var nextId = ++lastId ;
+app.post("/api/v1/orders", (req, res) => {
+    
+    var nextId = generateNextId(orders) ;
     orders.push({"id":nextId,user:req.body.user,"content": req.body.content});
     res.status(200)
     res.json(orders) ;
 });
 
-app.put("/orders/:orderId",  (req, res) => {
+app.put("/api/v1/orders/:orderId",  (req, res) => {
 
     orders.map((order, idx)=> {
         if(orders.id == req.params.orderId)
@@ -79,20 +87,30 @@ app.put("/orders/:orderId",  (req, res) => {
     res.json(orders) ;
 });
 
-app.post("/menu", (req, res) => {
-    var length = menu.length ;
-    var lastId = length != 0 ? menu[length - 1].id : 0 ;
-    var nextId = ++lastId ;
-    var date = new Date() ;
-    orders.push({"id":nextId,caterer:req.body.caterer,"content": req.body.content,"date" : date});
+app.get("/api/v1/menu", function (req, res) {
     res.status(200)
-    res.json(orders) ;
+    res.json(menu) ;
+});
+app.post("/api/v1/menu", (req, res) => {
+    var nextId = generateNextId(menu) ;
+    var date = new Date() ;
+    menu.push({"id":nextId,caterer:req.body.caterer,"content": req.body.content,"date" : date});
+    res.status(200)
+    res.json(menu) ;
 });
 
 
+// generate 404 errors when route note found
+app.use((req, res, next) => {
+    next(createError(404));
+})
 
+app.use((err, req, res,next) =>{
+    res.status(401)
+    res.json('The specified link not found!')
+})
 
-const server = http.createServer(app) ;
-server.listen(4000, ()=>console.log("App is listening on 4000")) ;
+var server = http.createServer(app) ;
+server.listen(5000, ()=>console.log("App is listening on 5000")) ;
 
 module.exports = server ;
