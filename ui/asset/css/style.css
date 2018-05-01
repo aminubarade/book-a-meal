@@ -1,4 +1,5 @@
 body{
+    font-family: 'Tajawal', sans-serif;
     margin: 0px;
 }
 
@@ -45,19 +46,69 @@ footer {
     padding: 100px;
     position: relative; 
 }
-.account-container{
-    height: 60vh;
-    width: 50vh;
+
+.whole-account {
+    background-image: url('../images/2.jpg');
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    
+}
+.account-container {
+    height: auto;
+    width: auto;
+    background-color: whitesmoke;
+    max-width: 50vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 30px;
     margin: auto;
+}
+.account-header {
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    background-color:  #333;
+}
+.account-body {
+    padding: 30px;
 }
 
 
-.row{
+.row {
     /* */
     display: flex;
-    font-family: 'Courier New', Courier, monospace;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.row-item {
+    display: flex;
+    padding: 1rem;
+}
+.item {
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.item-image{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    filter: contrast(70%);
+    filter: saturate(180%);
+    overflow: hidden;
+    position: relative;
+}
+.item-body{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
 }
 
 
@@ -114,13 +165,15 @@ footer {
 }
 
 .site-search{
-    background-image: url('../images/3.jpg');
+    /*background-image: url('../images/3.jpg');*/
     background-size: cover;
     width: 100%;
     height: 50vh;
-    background-color: aqua;
+    background-color: #231B3E;
     position: relative;
     margin: 0px;
+    color: white;
+    padding: 20px;
 }
 .search-input{
     margin: auto;
@@ -139,11 +192,7 @@ footer {
     width: 100%;
     height: 100%;
 }
-.item{
-    height: 150px;
-    width: 150px;
-    margin: auto;
-}
+
 
 .btn{
     height: 30px;
@@ -151,6 +200,9 @@ footer {
     background-color: royalblue;
     border: none;
     color: white;
+}
+.btn-orange {
+    background-color: orange;
 }
 .btn:hover{
     cursor: pointer;
@@ -209,4 +261,7 @@ footer {
 
 .link-space a:hover {
     color: cadetblue;
+}
+.no-style {
+    text-decoration: none;
 }
