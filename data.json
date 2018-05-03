@@ -1,0 +1,16 @@
+{
+    "users" : [
+        {"id":1, "name":"Aminu Barade"},
+        {"id":2, "name":"Olajide Ahmed"}
+    ],
+    "caterer" : [
+        {"id":1, "name":"Iya Maliki" }
+    ],
+    "meals" : [
+        {"id":1, "content":"White Rice and Stew"},
+        {"id":2, "content":"Fried and Jolof rice"},
+        {"id":3, "content":"Pondo-Yam and Egusi"}
+    ],
+    "menu" : [],
+    "orders" : [{"id":1,"user":"Aminu Barade", "content":"White Rice and Stew"}]
+}
