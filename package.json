@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --exec npm run babel-node -- ./server/app.js",
     "test": "mocha --compilers js:babel-core/register server/test/*.js --exit",
-    "lint" : "eslint ./server/*.js",
+    "lint": "eslint ./server/*.js",
     "babel-node": "babel-node --presets=latest"
   },
   "keywords": [
@@ -24,7 +24,10 @@
     "babel-preset-latest": "^6.24.1",
     "express": "^4.16.3",
     "http-errors": "^1.6.3",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.6"
   },
   "devDependencies": {
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
