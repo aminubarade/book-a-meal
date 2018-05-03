@@ -1,0 +1,26 @@
+{
+  "name": "book-a-meal",
+  "version": "1.0.0",
+  "description": "A meal booking app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app",
+    "test": "mocha"
+  },
+  "keywords": [
+    "Meal",
+    "Booking",
+    "Foods"
+  ],
+  "author": "Aminu Barade",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1"
+  }
+}
