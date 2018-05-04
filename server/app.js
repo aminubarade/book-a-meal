@@ -1,14 +1,11 @@
 import express from 'express';
 import http from 'http';
 import  createError from 'http-errors';
-
 import meals from './routes/meals';
 import menu from  './routes/menu';
 import orders from './routes/orders';
 
 const app = express();
-
-
 app.use(express.json()) ;
 app.use(express.urlencoded({extended:false}));
 
