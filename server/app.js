@@ -1,6 +1,6 @@
 import express from 'express';
 import http from 'http';
-import  createError from 'http-errors';
+import createError from 'http-errors';
 import meals from './routes/meals';
 import menu from  './routes/menu';
 import orders from './routes/orders';
