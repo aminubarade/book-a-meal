@@ -1,8 +1,7 @@
 import generateId from '../constants/functions';
 import orders  from '../models/orderModel';
 
-class orderController
-{
+class orderController {
     getOrders(req, res) {
         return res.status(200).json(orders);
     }
@@ -24,7 +23,7 @@ class orderController
         if(!foundOrder){
             return res.status(401).json("Order with id {" + req.param.id + "} not found");
         }
-        res.status(200).json(orders);
+        res.status(201).json(orders);
     }
 }
 
