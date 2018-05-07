@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Login</title>
+        <title>Login/Register</title>
         <link rel="stylesheet" href="asset/css/style.css">
     </head>
     <body class="whole-account">
@@ -21,23 +21,38 @@
             <div class="account-body">
                 <div id="login">
                     <form action="catererpage.html" method="POST">
-                        <input type="text" class="form-input" placeholder="username">
-                        <input type="password" class="form-input" placeholder="password">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" placeholder="password">
+                        </div>
                         <input type="submit" class="btn" value="login">
                     </form>
                 </div>
                 <div id="register">
                     <p><strong>or</strong></p>
-                    <hr>
+            
                     <form action="catererpage.html">
-                        <input type="text" class="form-input" placeholder="fullname">
-                        <input type="email" class="form-input" placeholder="email">
-                        <input type="username" class="form-input" placeholder="username">
-                        <input type="password" class="form-input" placeholder="password">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="fullname">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="username" class="form-input" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" placeholder="password">
+                        </div> 
                         <input type="submit" class="btn" value="register">
                     </form>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <p>&copy; Copyright 2018 <a href="#" class="no-style">Book a meal.</a></p>
+        </footer>
     </body>
 </html>
