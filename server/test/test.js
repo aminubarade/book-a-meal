@@ -23,7 +23,7 @@ describe("Meals", ()=>  {
         it("should post a meal",(done) => {
             chai.request(server).post(endPoint).send(meal)
                 .end((err, res)=> {
-                    res.should.have.status(200);
+                    res.should.have.status(201);
                     res.should.be.a('object');
                     done() ;
                 })
@@ -48,7 +48,7 @@ describe("Menu", ()=>  {
         it("should post a menu",(done) =>  {
             chai.request(server).post(endPoint).send(menu)
                 .end((err, res)=> {
-                    res.should.have.status(200);
+                    res.should.have.status(201);
                     res.should.be.a('object');
                     done();
                 })
@@ -73,7 +73,7 @@ describe("Orders", ()=>  {
         it("should post an order",(done) =>  {
             chai.request(server).post(endPoint).send(order)
                 .end((err, res)=> {
-                    res.should.have.status(200);
+                    res.should.have.status(201);
                     res.should.be.a('object');
                     done();
                 })
@@ -85,7 +85,7 @@ describe("Orders", ()=>  {
                 chai.request(server).put(rootUrl + '/orders/1')
                     .send({"content":"Akara and bread"})
                     .end((err, res)=> {
-                        res.should.have.status(200);
+                        res.should.have.status(201);
                         res.should.be.a('object');
                         done();
                     })
@@ -93,3 +93,4 @@ describe("Orders", ()=>  {
         })
     });
 });
+

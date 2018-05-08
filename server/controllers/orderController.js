@@ -8,7 +8,7 @@ class orderController {
     postOrder(req, res) {
         const nextId = generateId(orders);
         orders.push({"id":nextId, "user":req.body.user,"caterer":req.body.caterer, "content":req.body.content});
-        return res.status(200).json({"message":"Order completed successfully"});
+        return res.status(201).json({"message":"Order completed successfully"});
     }
     putOrder(req, res) {
         let foundOrder = false;
