@@ -1,4 +1,8 @@
 node_modules/
+server/
 .idea/
 .vscode/
 .DS_Store
+settings.json
+.env
+

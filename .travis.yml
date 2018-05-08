@@ -1,0 +1,25 @@
+sudo: false
+language: node_js
+node_js:
+  - "node"
+  - "8"
+env:
+  global:
+    - CC_TEST_REPORTER_ID=38e7fc8963a10fbdcc65eb88dfc2d02b654fafbe23ef65756064eef2585e501e
+before_install: 
+  - cd server
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - npm install coveralls --save-dev
+  - npm install mocha-lcov-reporter --save-dev
+  - npm install supertest 
+  - yarn global add nyc
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - npm test
+  - nyc --reporter=lcov yarn run test
+  
+after_success:
+  - npm run coveralls
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
