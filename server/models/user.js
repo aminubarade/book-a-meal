@@ -29,17 +29,14 @@ const userModel = (sequelize, DataTypes) => {
       allowNull: false
     },
   });
-
   User.associate = (models) => {
     User.hasMany(models.Meal, {
       foreignKey: 'userId',
       as: 'meal'
     });
   };
-
   User.prototype.comparePassword = (user, password) =>
     bcrypt.compareSync(password, user.password);
-
   /**
    * Hook for hashing password before creating a new user
    */
@@ -56,5 +53,4 @@ const userModel = (sequelize, DataTypes) => {
 
   return User;
 };
-
 export default userModel;

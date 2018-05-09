@@ -4,6 +4,7 @@ import createError from 'http-errors';
 import meals from './routes/meals';
 import menu from './routes/menu';
 import orders from './routes/orders';
+import users from './routes/users';
 
 const app = express();
 app.use(express.json());
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/v1/meals', meals);
 app.use('/api/v1/menu', menu);
 app.use('/api/v1/orders', orders);
+app.use('/api/v1/users', users);
 
 // generate 404 errors when route note found
 app.use((req, res, next) => {
