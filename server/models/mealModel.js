@@ -1,5 +1,7 @@
 import sequelize from '../constants/sequelize';
-const meals = [
+
+
+/*const meals = [
     {
         'id':1, 
         'content':'White Rice and Stew'
@@ -13,5 +15,5 @@ const meals = [
         'content':'Pondo-Yam and Egusi'
     }
 ];
-
+*/
 export default meals;
