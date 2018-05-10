@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   Meal.associate = function(models) {
     // associations can be defined here
     Meal.belongsTo(models.User);
-    Meal.hasMany(models.Menu,{through:'meal_menu'});
-    Meal.hasMany(models.Order,{through:'meal_orders'});
+    Meal.belongsToMany(models.Menu,{through:'meal_menu'});
+    Meal.belongsToMany(models.Order,{through:'meal_orders'});
     
   };
   return Meal;

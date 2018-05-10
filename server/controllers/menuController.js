@@ -1,42 +1,43 @@
-import generateId from '../constants/functions';
-import menu from '../models/menuModel';
+import db from '../models';
+const { Menu,Meal } = db;
+class MenuController
+{
+    static async getMenu(req, res) {
+        try {
+            const {menuDate} = req.body.menuDate;
+            const dateMenu = await Menu.findAll({
+                where: { menuDate },
+                include: [{
+                    model: Meal,
+                    attribute: 'id',
+                    as: 'meals'
+                }] });
+            return res.status(200).json({
+                message: 'Menu for this Date',
+                dateMenu
+            })
+        } catch (error)
+        {
+            return res.status(400).json({message:'something went wrong', error})
+        }
+    };
 
-class MenuController {
-  getMenu(req, res) {
-    return res.status(200).json(menu);
-  }
-  postMenu(req, res) {
-    const nextId = generateId(menu);
-    menu.push({ 'id': nextId, caterer: req.body.caterer, content: req.body.content });
-    return res.status(201).json(menu);
-  }
-  putMenu(req, res) {
-    // validate your request.body
-    // insert into db
-    let foundMenu = false;
-    menu.map((currentMenu, index) => {
-      if (currentMenu.id == req.params.id) {
-        currentMenu.content = req.body.content;
-        foundMenu = true;
-      }
-    });
-    if (!foundMenu) {
-      return res.status(401).json(`Menu with id {${req.param.id}} not found`);
-    }
-    res.status(201).json(menu);
-  }
-  deleteMenu(req, res) {
-    let foundMenu = false;
-    menu.map((currentMenu, index) => {
-      if (currentMenu.id == req.params.id) {
-        foundMenu = true;
-        menu.splice(index, 1);
-      }
-    });
-    if (!foundMenu) {
-      return res.status(401).json(`Menu with id {${req.param.id}} not found`);
-    }
-    res.status(201).json(menu);
-  }
+    static async postMenu(req, res) {
+        try {
+            const {title,description,mealId, menuDate} = req.body;
+            const userId = req.decoded.id;
+            const newMenu = {title,description,userId,menuDate};
+            const savedMenu = await Menu.create(newMenu);
+            savedMenu.addMeals([...mealId]);
+
+            return res.status(200).json({message:'menu saved!',savedMenu});
+        } catch (error)
+        {
+            return res.status(400).json({message:'something went wrong', error})
+        }
+    };
+
+
 }
-export default new MenuController();
+
+export default MenuController;

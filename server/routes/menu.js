@@ -1,15 +1,23 @@
-import express from 'express';
-import menuController from '../controllers/menuController';
+import MenuController from '../controllers/menuController';
+import authMiddleware from '../middlewares/authentications';
+import validationMiddleware from '../middlewares/validations';
+const menuRoutes = (router) => {
+    router.route('/menu')
+        .post(
+            validationMiddleware.postMenu,authMiddleware.verifyToken, authMiddleware.isCaterer,
+            MenuController.postMenu
+        )
+        .get(
+            authMiddleware.verifyToken,
+            MenuController.getMenu
+        );
 
-const router = express.Router();
+    router.route('/menu/:id')
+        .put(
+            validationMiddleware.putMenu(req, res),authMiddleware.verifyToken, authMiddleware.isCaterer,
+            MenuController.putMenu
+        )
+        
+};
 
-router.get('/', menuController.getMenu);
-
-router.post('/', menuController.postMenu);
-
-router.put('/:id', menuController.putMenu);
-
-router.delete('/:id', menuController.deleteMenu);
-
-
-export default router;
+export default menuRoutes;

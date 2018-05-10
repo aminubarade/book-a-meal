@@ -1,31 +1,54 @@
-import generateId from '../constants/functions';
-import orders from '../models/orderModel';
+import db from '../models';
+const { Order } = db;
 
-class orderController {
-  getOrders(req, res) {
-    return res.status(200).json(orders);
-  }
-  postOrder(req, res) {
-    const nextId = generateId(orders);
-    orders.push({
-      'id': nextId, 'user': req.body.user, 'caterer': req.body.caterer, 'content': req.body.content
-    });
-    return res.status(201).json({ 'message': 'Order completed successfully' });
-  }
-  putOrder(req, res) {
-    let foundOrder = false;
-    orders.map((currentOrder, index) => {
-      if (currentOrder.id == req.params.id) {
-        currentOrder.caterer = req.body.caterer;
-        currentOrder.content = req.body.content;
-        foundOrder = true;
+class OrderController {
+  static async getOrders(req, res) {
+    try {
+      const orders = await Order.find({ include: [{ model: User, where: { id: sequelize.literal(user.id) } }, { model: Meal }] });
+      if (orders.length == 0) {
+        return res.status(400).json({ message: 'no order found!' });
       }
-    });
-    if (!foundOrder) {
-      return res.status(401).json('Order with id {' + req.param.id + '} not found');
+      return res.status(200).json(orders);
+    } catch (error) {
+      return res.status(400).json({ message: 'something went wrong', error })
     }
-    res.status(201).json(orders);
-  }
+  };
+  static async postOrder(req, res) {
+    try {
+      const { description, price, mealId } = req.body;
+      const userId = req.decoded.id;
+      const order = { price, description };
+      const newOrder = await Order.create(order);
+      const savedOrder = await newOrder.setMeal(mealId);
+      const completeOrder = await savedOrder.setUser(userId);
+      if (completeOrder) {
+        return res.status(200).json({ message: 'order created!' });
+      }
+      return res.status(400).json({ message: 'problem occurred while creating order!' });
+    } catch (error) {
+      return res.status(400).json({ message: 'something went wrong', error })
+    }
+  };
+  static async putOrder(req, res) {
+    try {
+      const { description, price, mealId } = req.body;
+      const userId = req.decoded.id;
+      const orderId = req.param.id;
+      const update = { price, description };
+      const oldOrder = await Order.find({ where: { id: orderId }, include: [{ model: User }] });
+      if (oldOrder.user.id !== userId) {
+        return res.status(400).json({ message: 'you cant edit this order' });
+      }
+      const updateOrder = await Order.update(update);
+      const updatesOrder = await updateOrder.setMeal(mealId);
+      const completeOrder = await updatesOrder.setUser(userId);
+      if (completeOrder) {
+        return res.status(200).json({ message: 'order updated!' });
+      }
+      return res.status(400).json({ message: 'problem occurred while creating order!' });
+    } catch (error) {
+      return res.status(400).json({ message: 'something went wrong', error })
+    }
+  };
 }
-
-export default new orderController();
+export default OrderController;

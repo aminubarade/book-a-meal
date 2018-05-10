@@ -1,9 +1,18 @@
-import express from 'express';
-import userController from '../controllers/userController';
+import UserController from '../controllers/userController';
+import validationMiddleware from '../middlewares/validations';
 
-const router = express.Router();
+const userRoutes = (router) => {
+    router.route('/auth/signup')
+        .post(
+            validationMiddleware.signup,
+            UserController.signup
+        );
 
-router.get('/', userController.getUsers);
-router.post('/', userController.createUser);
+    router.route('/auth/login')
+        .post(
+            validationMiddleware.login,
+            UserController.login
+        );
+};
 
-export default router;
+export default userRoutes;

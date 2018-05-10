@@ -1,10 +1,23 @@
-import express from 'express';
-import orderController from '../controllers/orderController';
+import OrderController from '../controllers/orderController';
+import authMiddleware from '../middlewares/authentications';
+import validationMiddleware from '../middlewares/validations';
 
-const router = express.Router();
+const orderRoutes = (router) => {
+    router.route('/orders')
+        .post(
+            validationMiddleware.postOrder,authMiddleware.verifyToken,
+            OrderController.postOrder
+        )
+        .get(
+            authMiddleware.verifyToken, authMiddleware.isCaterer,
+            OrderController.getOrders
+        );
 
-router.get('/', orderController.getOrders);
-router.post('/', orderController.postOrder);
-router.put('/:id', orderController.putOrder);
+    router.route('/orders/:id')
+        .put(
+            validationMiddleware.putMeal,authMiddleware.verifyToken,
+            OrderController.putOrder
+        );
+};
 
-export default router;
+export default orderRoutes;
