@@ -17,7 +17,7 @@ const routes = (app) => {
         MealController.getMeals
     );
     app.put('/api/v1/meals/:id',
-        validationMiddleware.putMeal,authMiddleware.verifyToken, authMiddleware.isCaterer,
+        validationMiddleware.putMeal, authMiddleware.verifyToken, authMiddleware.isCaterer,
         MealController.putMeal
     );
     app.delete('/api/v1/meals/:id',
@@ -26,8 +26,8 @@ const routes = (app) => {
     );
 
     //Menu Routes
-    app.post('/api/v1/menu', 
-        validationMiddleware.postMenu,authMiddleware.verifyToken, authMiddleware.isCaterer,
+    app.post('/api/v1/menu',
+        validationMiddleware.postMenu, authMiddleware.verifyToken, authMiddleware.isCaterer,
         MenuController.postMenu
     );
     app.get('/api/v1/menu',
@@ -36,26 +36,26 @@ const routes = (app) => {
 
     //Orders Routes
     app.post('/api/v1/orders',
-        validationMiddleware.postOrder,authMiddleware.verifyToken,
-        OrderController.postOrder 
+        validationMiddleware.postOrder, authMiddleware.verifyToken,
+        orderController.postOrder
     );
     app.get('/api/v1/orders',
         authMiddleware.verifyToken, authMiddleware.isCaterer,
-        OrderController.getOrders 
+        orderController.getOrders
     );
     app.put('/api/v1/orders:id',
-        validationMiddleware.putMeal,authMiddleware.verifyToken,
-        OrderController.putOrder
+        validationMiddleware.putMeal, authMiddleware.verifyToken,
+        orderController.putOrder
     );
 
     //User Routes
-    app.post('/api/v1/auth/signup', 
+    app.post('/api/v1/auth/signup',
         validationMiddleware.signup,
-        UserController.signup
+        userController.signup
     );
     app.post('/api/v1/auth/login',
         validationMiddleware.login,
-        UserController.login
+        userController.login
     )
 };
 
