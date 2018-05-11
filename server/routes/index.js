@@ -6,14 +6,13 @@ import authMiddleware from '../middlewares/authentications';
 import validationMiddleware from '../middlewares/validations';
 
 const routes = (app) => {
-
     //Meals Routes
     app.post('/api/v1/meals',
         validationMiddleware.postMeal, authMiddleware.verifyToken, authMiddleware.isCaterer,
         MealController.postMeal
     );
     app.get('/api/v1/meals',
-        authMiddleware.verifyToken, authMiddleware.isCaterer,
+        //authMiddleware.verifyToken, authMiddleware.isCaterer,
         MealController.getMeals
     );
     app.put('/api/v1/meals/:id',
@@ -31,7 +30,8 @@ const routes = (app) => {
         MenuController.postMenu
     );
     app.get('/api/v1/menu',
-        authMiddleware.verifyToken, MenuController.getMenu
+        authMiddleware.verifyToken,
+        MenuController.getMenu
     );
 
     //Orders Routes

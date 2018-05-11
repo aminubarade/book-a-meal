@@ -5,51 +5,35 @@ import models from '../models';
 
 const Users = models.User;
 class UserController {
-   static signup(req, res) {
-        const {email, username, fullname, password} = req.body;
-        Users.find({
-            where: {
-                $or: [
-                    { email },
-                    { username }
-                ]
-            }
+    static signup(req, res) {
+        const { fullname, role, username, email, password } = req.body;
+        return Users.create({
+            email,
+            role,
+            username,
+            fullname,
+            password: bcrypt.hashSync(password, 10),
+            plain: true,
         })
-            .then((foundUser) => {
-                if (!foundUser) {
-                    return Users.create({
-                        email,
-                        username,
-                        fullname,
-                        password: bcrypt.hashSync(password, 10),
-                    })
-                        .then((newUser) => {
-                            const token = jwt.sign({ user: foundUser }, process.env.SECRET_KEY, {
-                                expiresIn: 60 * 60 * 24
-                            });
-                            res.status(201).send({
-                                message: 'Signup Successful',
-                                username,
-                                fullname,
-                                email,
-                                Token: token
-                            });
-                        })
-                        .catch((err) => {
-                            res.status(500).send({
-                                message: 'some error occured!'
-                            });
-                        });
-                }
+            .then((newUser) => {
+                const token = jwt.sign(newUser.dataValues, process.env.SECRET_KEY);
+                res.status(201).send({
+                    message: 'Signup Successful',
+                    username,
+                    role,
+                    fullname,
+                    email,
+                    token
+                });
             })
             .catch((err) => {
-                res.status(500).send({
-                    message: 'some error occured!'
-                });
+                //console.log(err, 'ududududu')
+                res.status(500).send(err);
             });
+
+
     }
 
-    
     static login(req, res) {
         const { username, email, password, } = req.body;
         Users.findOne({

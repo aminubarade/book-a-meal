@@ -1,6 +1,6 @@
 import express from 'express';
 import http from 'http';
-import  createError from 'http-errors';
+import createError from 'http-errors';
 import bodyParser from 'body-parser';
 
 import routes from './routes/index';
@@ -10,6 +10,7 @@ const app = express();
 require('dotenv').config();
 
 const key = process.env.SECRET_KEY;
+let PORT = process.env.PORT || 3000;
 app.use(bodyParser.json()) ;
 app.use(bodyParser.urlencoded({extended:false}));
 routes(app);
@@ -32,6 +33,6 @@ routes(app);
 const server = http.createServer(app) ;
 
 //server.on('listening', ()=>console.log("App is listening on " + 3000) );
-server.listen(3000) ;
+server.listen(5000) ;
 
 module.exports = server ;

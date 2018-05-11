@@ -1,8 +1,6 @@
 import { request } from "https";
 
 class Validation{
-
-
     static signup(req, res, next)
     {
         const emailRegularExpression = /^.+@.+\..+$/i;
@@ -31,7 +29,7 @@ class Validation{
         {
             return res.status(400).send({confirmPassword:'passwords do not match!'});
         }
-        return next();
+        next();
 
     }
     static login(req, res, next)
@@ -45,7 +43,7 @@ class Validation{
         {
             return res.status(400).send({username:'Enter  password!'});
         }
-        return next();
+        next();
 
     }
 
@@ -68,7 +66,7 @@ class Validation{
         {
             return res.status(400).send({price:'Invalid price!'});
         }
-        return next();
+        next();
 
     }
 
@@ -87,7 +85,7 @@ class Validation{
         {
             return res.status(400).send({price:'Invalid price!'});
         }
-        return next();
+        next();
 
     }
 
@@ -102,7 +100,7 @@ class Validation{
         {
             return res.status(400).send({price:'Invalid price!'});
         }
-        return next();
+        next();
 
     }
 
@@ -117,7 +115,7 @@ class Validation{
         {
             return res.status(400).send({price:'Enter content!'});
         }
-        return next();
+        next();
 
     }
 
@@ -133,7 +131,7 @@ class Validation{
         {
             return res.status(400).send({price:'Enter content!'});
         }
-        return next();
+        next();
 
     }
 }
