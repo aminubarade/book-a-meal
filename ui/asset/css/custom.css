@@ -1,0 +1,94 @@
+body{
+    font-family: 'Tajawal', sans-serif;
+    margin: 0px;
+}
+
+/* nav */
+nav{
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;             
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* footer element */
+
+footer {
+    width: 100%;
+    display: inline-block;
+    background-color: #efefef;
+    text-align: center;
+    z-index: -1;
+}
+
+/* classes */
+.container{
+    padding: 100px;
+    position: relative; 
+}
+
+/* login */
+.whole-account {
+    background-image: url('../images/meal.jpg');
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
+/* login box */
+.account-container {
+    height: auto;
+    width: auto;
+    background-color: whitesmoke;
+    max-width: 20rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+}
+.account-header {
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    background-color:  #333;
+}
+.account-body {
+    padding: 30px;
+}
+/*end of login*/
+
+
+/* site row and columns */
+.site-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.site-row {
+    /* */
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+}
+
+.site-row-item {
+    display: flex;
+    padding: 1rem;
+}

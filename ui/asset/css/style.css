@@ -123,8 +123,7 @@ footer {
 
 .list-head {
     widows: 100%;
-    height: 20px;
-    padding: 20px;
+    height: 3em;
     color: aliceblue;
     
 }
@@ -202,8 +201,9 @@ footer {
 }
 
 .bg-dark {
-    background-color: rgb(49, 48, 48);
+    background-color: rgb(79, 84, 84);
 }
+
 .btn{
     height: 30px;
     width: 70px;
@@ -249,12 +249,12 @@ footer {
 }
 
 .content  {
-    width: 75%;
+    width: 80%;
 }
 
 .sidebar  {
     background-color: #333;
-    width: 20%;
+    width: 15%;
 }
 .sidebar li {
     list-style: none;
