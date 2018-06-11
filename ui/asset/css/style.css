@@ -34,6 +34,7 @@ footer {
     background-color: #efefef;
     text-align: center;
     z-index: -1;
+    margin-top: 20px;
   }
 /*end of html elements*/
 
@@ -206,7 +207,7 @@ footer {
 
 .btn{
     height: 30px;
-    width: 70px;
+    width: auto;
     background-color: royalblue;
     border: none;
     color: white;
@@ -230,6 +231,7 @@ footer {
     width: 100%;
     transition: 1s;
     color: darkgray;
+    resize: none;
 }
 .form-input:focus::placeholder {
     color: black;

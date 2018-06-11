@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
     <link rel="stylesheet" href="ui/asset/css/style.css">
-    <title>Book A Meals</title>
+    <title>Book A Meal</title>
 </head>
     <body>
         <nav class="nav navbar">
             <ul>
-                <li><a href="ui/index.html">BOOK A MEAL</a></li>
-                <li class="pull-right"><a href="ui/account.html">REGISTER</a></li>
-                <li class="pull-right"><a href="ui/account.html">LOGIN</a></li>
+                <li><a href="index.html">BOOK A MEAL</a></li>
+                <li class="pull-right"><a href="ui/account.html">LOGIN/REGISTER</a></li>
             </ul>
         </nav>
 
@@ -29,102 +28,41 @@
         <div class="container">
             <h2>Today's menu</h2>
             <ul class="row">
-                <li class="row-item">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="ui/asset/images/1.jpg" class="img-responsive">
-                        </div>
-                        <div class="item-body">
-                            <h4>Cheese burger</h4>
-                            <p>Price: $0.5</p>
-                            <button class="btn btn-orange">Order</button>
-                        </div>
-                    </div>
-                </li>
+                <!-- 1 -->
                 <li class="row-item">
                     <div class="item">
                         <div class="item-image">
                             <img src="ui/asset/images/2.jpg" class="img-responsive">
                         </div>
                         <div class="item-body">
-                            <h4>Rice and Vaggies</h4>
-                            <p>Price: $1.5</p>
-                            <button class="btn btn-orange">Order</button>
+                            <h4>Rice and Stew</h4>
+                            <p>Price: $2.5</p>
+                            <!-- modal -->
+                            <div id="open-modal" class="modal-window">
+                                <div>
+                                    <a href="#modal-close" title="Close" class="modal-close">Close</a>
+                                    <div class="account-container">
+                                        <div class="account-body">
+                                            <div id="login">
+                                                <form action="#" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-input" placeholder="quantity">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-input" placeholder="price">
+                                                    </div>
+                                                    <button class="btn" >Proceed to checkout</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#open-modal"><button class="btn btn-orange">Order</button></a>
                         </div>
                     </div>
                 </li>
-                <li class="row-item">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="ui/asset/images/2.jpg" class="img-responsive">
-                        </div>
-                        <div class="item-body">
-                            <h4>Rice and chicken</h4>
-                            <p>Price: $0.5</p>
-                            <button class="btn btn-orange">Order</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="row-item">
-                        <div class="item">
-                            <div class="item-image">
-                                <img src="ui/asset/images/1.jpg" class="img-responsive">
-                            </div>
-                            <div class="item-body">
-                                <h4>Fish Burger</h4>
-                                <p>Price: $0.5</p>
-                                <button class="btn btn-orange">Order</button>
-                            </div>
-                        </div>
-                </li>
-                <li class="row-item">
-                        <div class="item">
-                            <div class="item-image">
-                                <img src="ui/asset/images/2.jpg" class="img-responsive">
-                            </div>
-                            <div class="item-body">
-                                <h4>Rice and Stew</h4>
-                                <p>Price: $2.5</p>
-                                <button class="btn btn-orange">Order</button>
-                            </div>
-                        </div>
-                </li>
-                <li class="row-item">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="ui/asset/images/1.jpg" class="img-responsive">
-                        </div>
-                        <div class="item-body">
-                            <h4>Chicken Burger</h4>
-                            <p>Price: $3.5</p>
-                            <button class="btn btn-orange">Order</button>
-                        </div>
-                    </div>
-                </li> 
-                <li class="row-item">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="ui/asset/images/1.jpg" class="img-responsive">
-                        </div>
-                        <div class="item-body">
-                            <h4>Beef Burger</h4>
-                            <p>Price: $1.5</p>
-                            <button class="btn btn-orange">Order</button>
-                        </div>
-                    </div>
-                </li> 
-                <li class="row-item">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="ui/asset/images/2.jpg" class="img-responsive">
-                        </div>
-                        <div class="item-body">
-                            <h4>Sticky Rice</h4>
-                            <p>Price: $0.5</p>
-                            <button class="btn btn-orange">Order</button>
-                        </div>
-                    </div>
-                </li> 
+                <!-- 2 -->
             </ul>
         </div>
 
