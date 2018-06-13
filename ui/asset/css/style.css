@@ -49,7 +49,7 @@ footer {
 
 /*class and ID*/
 .container{
-    padding: 100px;
+    margin: 100px;
     position: relative; 
 }
 
@@ -91,6 +91,7 @@ footer {
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
+    justify-content: center;
 }
 
 .row-item {
@@ -131,7 +132,8 @@ footer {
 
 .list-head {
     widows: 100%;
-    height: 3em;
+    height: auto;
+    padding: 5px;
     color: aliceblue;
     
 }

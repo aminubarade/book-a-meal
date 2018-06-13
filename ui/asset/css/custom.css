@@ -74,21 +74,3 @@ footer {
 
 
 /* site row and columns */
-.site-col {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    list-style: none;
-}
-.site-row {
-    /* */
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-}
-
-.site-row-item {
-    display: flex;
-    padding: 1rem;
-}
