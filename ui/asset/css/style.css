@@ -39,9 +39,12 @@ footer {
     z-index: -1;
     margin-top: 20px;
   }
-  textarea{
+textarea{
     resize:none;
     height: 50px !important;
+}
+i {
+    cursor: pointer;
 }
 /*end of html elements*/
 
