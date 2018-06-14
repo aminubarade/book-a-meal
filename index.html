@@ -1,73 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
-    <link rel="stylesheet" href="ui/asset/css/style.css">
-    <title>Book A Meal</title>
-</head>
-    <body>
-        <nav class="nav navbar">
-            <ul>
-                <li><a href="index.html">BOOK A MEAL</a></li>
-                <li class="pull-right"><a href="ui/account.html">LOGIN/REGISTER</a></li>
-            </ul>
-        </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="ui/asset/css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <title>Create menu</title>
+    </head>
+        <body>
+            <nav class="nav navbar">
+                <ul>
+                    <li><a href="ui/index.html">BOOK A MEAL</a></li>
+                    <li class="pull-right"><a href="ui/account.html">LOGOUT</a></li>
+                </ul>
+            </nav>
+            <div class="dashboard-container">
+                <div class="sidebar">
+                    <ul class="link-space">
+                        <li  class="link-space"><a href="ui/catererpage.html">Meals</a></li>
+                        <li  class="link-space"><a href="ui/createMenu.html">Create Menu</a></li>
+                        <li  class="link-space"><a href="ui/orders.html">Order Summary</a></li>
+                    </ul>
 
-        <div class="site-search">
-            <h1>Welcome to Book a Meal</h1>
-            <p>Your number one online fastfood</p>
-            <div class="search-body">
-                <form action="#">
-                    <input type="text" name="search" id="search" class="search-input" placeholder="search available meals">
-                </form>
-            </div>
-        </div>
-        <div class="container">
-            <h2>Today's menu</h2>
-            <ul class="row">
-                <!-- 1 -->
-                <li class="row-item">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="ui/asset/images/2.jpg" class="img-responsive">
-                        </div>
-                        <div class="item-body">
-                            <h4>Rice and Stew</h4>
-                            <p>Price: $2.5</p>
-                            <!-- modal -->
-                            <div id="open-modal" class="modal-window">
-                                <div>
-                                    <a href="#modal-close" title="Close" class="modal-close">Close</a>
-                                    <div class="account-container">
-                                        <div class="account-body">
-                                            <div id="login">
-                                                <form action="#" method="POST">
-                                                    <div class="form-group">
-                                                        <input type="number" class="form-input" placeholder="quantity">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-input" placeholder="price">
-                                                    </div>
-                                                    <button class="btn" >Proceed to checkout</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                </div>
+                <div class="content">
+                    <div class="db-con">
+                        <ul class="content-item">
+                            <li class="list-head center-text bg-dark">
+                                <span style="display: flex; width: 50%">
+                                    <label for="menu">Create Menu</label>
+                                    <input type="text" class="form-input" name="menu" placeholder="Enter Menu Title">
+                                </span>
+                            </li>
+                            <li class="list-item">
+                                <div class="row">
+                                    <div class="list-image">
+                                        <h3>Menu</h3>
+                                    </div>
+                                    <div class="list-body">
+                                        <p>Sea food and Solid</p>
+                                    </div>
+                                    <div class="left-item">
+                                        <ul style="list-style: none; display:inline-flex;">
+                                            <li  class="link-space">
+                                                <i class="fas fa-check"></i>
+                                            </li>
+                                            <li  class="link-space">
+                                                <a href="#"><i class="fas fa-trash"></i></a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="#open-modal"><button class="btn btn-orange">Order</button></a>
-                        </div>
+                            </li>
+                            <li class="list-item">
+                                <div class="row">
+                                    <div class="list-image">
+                                        <h3>Menu</h3>
+                                    </div>
+                                    <div class="list-body">
+                                        <p>Solid food with vegetables</p>
+                                    </div>
+                                    <div class="left-item">
+                                        <ul style="list-style: none; display:inline-flex;">
+                                            <li  class="link-space">
+                                                <i class="fas fa-check"></i>
+                                            </li>
+                                            <li  class="link-space">
+                                                <a href="#"><i class="fas fa-trash"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <div class="row">
+                                    <div class="list-image">
+                                        <h3>Menu</h3>
+                                    </div>
+                                    <div class="list-body">
+                                        <p>Beef and Chicken</p>
+                                    </div>
+                                    <div class="left-item">
+                                        <ul style="list-style: none; display:inline-flex;">
+                                            <li  class="link-space">
+                                                <i class="fas fa-check"></i>
+                                            </li>
+                                            <li  class="link-space">
+                                                <a href="#"><i class="fas fa-trash"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </li>
-                <!-- 2 -->
-            </ul>
-        </div>
+                </div>
+            </div> 
 
-        <footer>
-            <p>&copy; Copyright 2018 <a href="#" class="no-style">Book a meal.</a></p>
-        </footer>
-    </body>
+            <footer>
+                <p>&copy; Copyright 2018 <a href="#" class="no-style">Book a meal.</a></p>
+            </footer>
+        </body>
 </html>
