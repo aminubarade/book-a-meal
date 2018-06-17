@@ -101,6 +101,13 @@ i {
     display: flex;
     padding: 1rem;
 }
+.orderpage-row-item {
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0.5em;
+    
+}
 .item {
     height: auto;
     width: 210px;
@@ -184,7 +191,7 @@ i {
     height: 50vh;
     background-color: #231B3E;
     position: relative;
-    margin: 50px auto;
+    margin: 30px auto;
     color: white;
     padding: 20px;
     overflow: hidden;
