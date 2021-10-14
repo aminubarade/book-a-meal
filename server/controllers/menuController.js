@@ -10,7 +10,7 @@ class MenuController
     postMenu(req, res){
         const nextId = generateId(menu);
         menu.push({"id":nextId, "caterer":req.body.caterer, "content":req.body.content});
-        return res.status(200).json(menu);
+        return res.status(201).json(menu);
     }
 
     putMenu(req, res){
@@ -28,7 +28,7 @@ class MenuController
             return res.status(401).json("Menu with id {" + req.param.id + "} not found");
         }
 
-        res.status(200).json(menu);
+        res.status(201).json(menu);
     }
 
     deleteMenu(req, res) {
@@ -47,7 +47,7 @@ class MenuController
             return res.status(401).json("Menu with id {" + req.param.id + "} not found");
         }
 
-        res.status(200).json(menu);
+        res.status(201).json(menu);
     }
 
 }

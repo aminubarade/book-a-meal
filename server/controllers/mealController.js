@@ -10,7 +10,7 @@ class MealController
     postMeal(req, res) {
         const nextId = generateId(meals);
         meals.push({"id":nextId,"content": req.body.content});
-        return res.status(200).json(meals);
+        return res.status(201).json(meals);
     };
     
     putMeal(req, res) {
@@ -25,7 +25,7 @@ class MealController
         if(!foundMeal){
             return res.status(401).json("Meal with id {" + req.param.id + "} not found");
         }
-        res.status(200).json(meals);
+        res.status(201).json(meals);
     };
     deleteMeal(req, res) {
         let foundMeal = false;
@@ -40,7 +40,7 @@ class MealController
         if(!foundMeal){
             return res.status(401).json("Cannot delete! Meal with id {" + req.param.id + "} not found");
         }
-        res.status(200).json(meals);
+        res.status(201).json(meals);
     };
 }
 export default new MealController();
